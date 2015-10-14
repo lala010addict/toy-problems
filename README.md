@@ -35,7 +35,7 @@ the repo with hackreactor's. Git won't automatically pull in upstream changes fo
 you; it trusts that you'll pull them in as needed. Do so by giving Git a reference
 to hackreactor's version of the repo:
 
-    git remote add upstream https://github.com/hackreactor/YYYY-MM-toy-problems.git
+    git remote add upstream https://github.com/remotebeta/2015-10-toy-problems.git
 
   > Be sure to substitue `YYYY-MM` with your actual cohort prefix! (ex: 2015-05)
 
