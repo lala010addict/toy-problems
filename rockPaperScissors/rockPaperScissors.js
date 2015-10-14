@@ -17,7 +17,20 @@
 *
 */
 
-var rockPaperScissors = function (
-) {
-  // TODO: your solution here
+var rockPaperScissors = function() {
+  var inputs = ["rock", "paper", "scissors"];
+  var output = [];
+
+  for (var i = 0; i < inputs.length; i++) {
+    for (var j = 0; j < inputs.length; j++) {
+      for (var k = 0; k < inputs.length; k++) {
+        output.push([inputs[i], inputs[j], inputs[k]]);
+      }
+    }
+  }
+
+
+  return output;
+
 };
+
