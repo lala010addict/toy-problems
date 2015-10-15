@@ -15,13 +15,20 @@
  *
  * See http://en.wikipedia.org/wiki/Subset for more on the definition of a
  * subset.
-*/
+ */
 
 /*
  * Extra credit: Make the method work for arrays that contain any value,
  * including non-strings.
-*/
+ */
 
-Array.prototype.isSubsetOf = function(array){
-  // Your code here
+Array.prototype.isSubsetOf = function(array) {
+  array.reduce(function(item) {
+    array.forEach(function(item) {
+      Array.prototype.forEach(function(x) {
+        if (item === x)
+          return true;
+      });
+    });
+  }, false);
 };

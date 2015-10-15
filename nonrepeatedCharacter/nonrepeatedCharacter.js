@@ -7,12 +7,9 @@
  */
 
 var firstNonRepeatedCharacter = function(string) {
- var splits = string.split(' ');
- var nonrepeated = [];
- splits.forEach(function(item){
- 	if(splits.indexOf(item ) === -1){
- 		nonrepeated.push(item)
- 	}
- })
- return nonrepeated[0]
+ var splits = string.split('');
+ var nonRepeated = [];
+
+
+ return nonRepeated[0];
 };
