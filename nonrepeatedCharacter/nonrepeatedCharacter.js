@@ -7,5 +7,12 @@
  */
 
 var firstNonRepeatedCharacter = function(string) {
-  // TODO: your solution here
+ var splits = string.split(' ');
+ var nonrepeated = [];
+ splits.forEach(function(item){
+ 	if(splits.indexOf(item ) === -1){
+ 		nonrepeated.push(item)
+ 	}
+ })
+ return nonrepeated[0]
 };
