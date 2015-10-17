@@ -22,13 +22,23 @@
  * including non-strings.
  */
 
-Array.prototype.isSubsetOf = function(array) {
-  array.reduce(function(item) {
-    array.forEach(function(item) {
-      Array.prototype.forEach(function(x) {
-        if (item === x)
-          return true;
-      });
-    });
-  }, false);
+//Array.prototype.isSubsetOf = function(array) 
+var isSubsetOf = function(Arr, array) {
+  var test = false
+  return array.reduce(function(item) {
+    for (var i = 0; i < Arr.length; i++) {
+      if (array.indexOf(Arr[i]) !== -1) {
+        test = true
+      } else {
+        test = false
+      }
+    }
+    return test
+  }, false)
+  
 };
+
+var Arr = ['merge', 'reset', 'reset', 'a']
+
+var array = ['reset', 'merge', 'add', 'commit']
+console.log(isSubsetOf(Arr, array))
