@@ -7,9 +7,20 @@
  */
 
 var firstNonRepeatedCharacter = function(string) {
- var splits = string.split('');
- var nonRepeated = [];
+  var obj = {};
+  var chAr;
+  for (var i = 0; i < string.length; i++) {
+    if (!obj[string[i]]) {
+      obj[string[i]] = 1
+    } else {
+      obj[string[i]]++
+    }
+  };
 
 
- return nonRepeated[0];
+  for (var key in obj) {
+    if (obj[key] === 1) {
+      return key
+    }
+  }
 };
