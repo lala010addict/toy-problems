@@ -22,13 +22,13 @@
  * Moar credits: Do you need to consider every element every time you iterate
  * through the array? Make it happen, boss. Again: Has the time complexity of
  * your algorithm changed?
-*/
+ */
 
 /*
  * Example usage:
  * bubbleSort([2, 1, 3]); // yields [1, 2, 3]
  *
-*/
+ */
 
 // Introduce i into the global scope so we can test function efficiency
 var i;
@@ -37,5 +37,31 @@ var i;
 
 
 var bubbleSort = function(array) {
-  // Your code here.
+  var sorted = [];
+  var toSort = function() {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] > array[i + 1] || i === array.length - 1) {
+        sorted.push(array[i]);
+      } else {
+        sorted.splice(i - 1, 0, array[i]);
+      }
+    }
+
+    check(sorted);
+  };
+  var tf = false;
+  var check = function(x) {
+    for (var i = 0; i < sorted.length; i++) {
+      if (sorted[i] > sorted[i + 1]) {
+        bubbleSort(x);
+      } else {
+        tf = true;
+      }
+    }
+  };
+
+  toSort(array);
+  if (tf === true) {
+    return sorted;
+  }
 };
