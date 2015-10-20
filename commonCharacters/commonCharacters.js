@@ -11,5 +11,17 @@
  */
 
 var commonCharacters = function(string1, string2) {
-  // TODO: Your code here!
+  // check each string2 indexof string 1
+  // if ! = -1, check pushed if exist,
+  // 	if = -1 push
+  var commonChar = [];
+  for (var i = 0; i < string1.length; i++) {
+    if (string2.indexOf(string1[i]) !== -1) {
+      if (commonChar.indexOf(string1[i]) === -1) {
+        commonChar.push(string1[i])
+      }
+    }
+  };
+  return commonChar.join("");
+  //return stringfy
 };
