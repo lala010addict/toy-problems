@@ -37,31 +37,23 @@ var i;
 
 
 var bubbleSort = function(array) {
-  var sorted = [];
-  var toSort = function() {
+
+
+  while (count !== 0) {
+    var count = 0;
     for (var i = 0; i < array.length; i++) {
-      if (array[i] > array[i + 1] || i === array.length - 1) {
-        sorted.push(array[i]);
-      } else {
-        sorted.splice(i - 1, 0, array[i]);
+      if (array[i] > array[i + 1]) {
+        var curr = array[i];
+        var next = array[i + 1];
+        array[i] = next;
+        array[i + 1] = curr;
+        count++;
       }
     }
-
-    check(sorted);
-  };
-  var tf = false;
-  var check = function(x) {
-    for (var i = 0; i < sorted.length; i++) {
-      if (sorted[i] > sorted[i + 1]) {
-        bubbleSort(x);
-      } else {
-        tf = true;
-      }
-    }
-  };
-
-  toSort(array);
-  if (tf === true) {
-    return sorted;
   }
+
+
+
+  return array;
+
 };
