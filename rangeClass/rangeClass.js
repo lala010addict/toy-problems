@@ -40,12 +40,22 @@
 
 
 var Range = function(start, end, step) {
+var numbers = [];
+if(this.step === undefined){
+	this.step = 1;
+}
+  for (var i = this.start; i < this.end+1; i+=this.step) {
+    numbers.push(i)
+  };
+  return numbers
 };
 
 Range.prototype.size = function () {
+	return (this.end - this.start)/this.step
 };
 
 Range.prototype.each = function (callback) {
+	
 };
 
 Range.prototype.includes = function (val) {
