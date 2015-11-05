@@ -39,5 +39,18 @@
  */
 
 
-var asyncMap = function(tasks, callback){
+var asyncMap = function(tasks, callback) {
+  var resultArray = [];
+  var count = 0;
+  for (var i = 0; i < tasks.length; i++) {
+    (function(i) {
+      tasks[i](function(val) {
+        resultArray[i] = val;
+        count++;
+        if (count === tasks.length) {
+          callback(resultArray)
+        };
+      })
+    })(i);
+  };
 };
