@@ -13,5 +13,15 @@
  */
 
 var toFraction = function(number) {
-  // Your code here
+var top = number * 2
+var bottom = 2
+
+if (number % 2 !== 0) {
+  top = number;
+  bottom = 1;
+  return top + '/' + bottom
+} else {
+  return top + '/' + bottom
+}
+
 };
