@@ -17,24 +17,44 @@ var longestRun = function(string) {
   var currCount = 0;
   var hold = [];
 
-  for (var i = 0; i < string.length; i++) {
-    if (string[i] === string[i] + 1) {
-      currCount++
+  if (string.length === 0) {
+    return [0, 0];
+  } else {
+    for (var i = 0; i < string.length; i++) {
+      if (string[i] === string[i + 1]) {
+        currCount++;
 
-    } else {
-      if (currCount > prevCount) {
-        currCount = prevCount
-        hold.push(string[i])
+      } else {
+        if (currCount > prevCount) {
+
+          hold.push({
+            length: currCount,
+            char: string[i]
+          })
+          prevCount = currCount;
+          currCount = 0;
+
+        }
       }
+    };
+
+    if (hold.length > 0) {
+      var last = hold.shift();
+      var holdd = [];
+      holdd.push(string.indexOf(last['char']));
+      var sum = last['length'] + string.indexOf(last['char']);
+      holdd.push(sum);
+
+      return holdd;
+    } else {
+      return [0, 0];
     }
 
- 
 
-  };
+  }
 
-    return hold;
+
 };
-
 
 
 // If you need a random string generator, use this!

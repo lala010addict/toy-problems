@@ -14,34 +14,46 @@ var longestRun = function(string) {
   var prevCount = 0;
   var currCount = 0;
   var hold = [];
-  debugger;
-  for (var i = 0; i < string.length; i++) {
-    if (string[i] === string[i + 1]) {
-      currCount++
 
-    } else {
-      if (currCount > prevCount) {
+  if (string.length === 0) {
+    return [0, 0];
+  } else {
+    for (var i = 0; i < string.length; i++) {
+      if (string[i] === string[i + 1]) {
+        currCount++;
 
-        hold.push({
-          length: currCount,
-          char: string[i]
-        })
-        prevCount = currCount
-        currCount = 0
+      } else {
+        if (currCount > prevCount) {
 
+          hold.push({
+            length: currCount,
+            char: string[i]
+          })
+          prevCount = currCount;
+          currCount = 0;
+
+        }
       }
+    };
+
+    if (hold.length > 0) {
+      var last = hold.shift();
+      var holdd = [];
+      holdd.push(string.indexOf(last['char']));
+      var sum = last['length'] + string.indexOf(last['char']);
+      holdd.push(sum);
+
+      return holdd;
+    } else {
+      return [0, 0];
     }
-  };
 
-  var last = hold.pop()
 
-  var holdd = [];
-  holdd.push(string.indexOf(last['char']))
-  var sum = last['length'] + string.indexOf(last['char'])
-  holdd.push(sum)
-  return holdd
+  }
+
+
 };
 
 
-console.log(longestRun("abcd"))
+console.log(longestRun("abcdefgh"))
 </script>
