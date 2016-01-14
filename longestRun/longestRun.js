@@ -15,7 +15,10 @@
 var longestRun = function(string) {
   var prevCount = 0;
   var currCount = 0;
-  var hold = [];
+  var hold = {
+    char: '',
+    length: ''
+  };
 
   if (string.length === 0) {
     return [0, 0];
@@ -25,24 +28,27 @@ var longestRun = function(string) {
         currCount++;
 
       } else {
-        if (currCount > prevCount) {
 
-          hold.push({
-            length: currCount,
-            char: string[i]
-          })
+
+        if (currCount > prevCount) {
+          hold['length'] = currCount;
+          hold['char'] = string[i];
           prevCount = currCount;
           currCount = 0;
 
+        } else {
+
+
+          currCount = 0;
         }
       }
     };
 
-    if (hold.length > 0) {
-      var last = hold.shift();
+    if (hold['char'] !== '') {
+      // var last = hold.shift();
       var holdd = [];
-      holdd.push(string.indexOf(last['char']));
-      var sum = last['length'] + string.indexOf(last['char']);
+      holdd.push(string.indexOf(hold['char']));
+      var sum = hold['length'] + string.indexOf(hold['char']);
       holdd.push(sum);
 
       return holdd;
@@ -55,7 +61,6 @@ var longestRun = function(string) {
 
 
 };
-
 
 // If you need a random string generator, use this!
 // (you wont need this function for your solution but it may help with testing)
