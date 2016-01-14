@@ -12,17 +12,37 @@
  * inputs well.
  */
 
-var longestRun = function (string) {
-  // TODO: Your code here!
+var longestRun = function(string) {
+  var prevCount = 0;
+  var currCount = 0;
+
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] === string[i] + 1) {
+      currCount++
+
+    } else {
+      if (currCount > prevCount) {
+        currCount = prevCount
+      }
+    }
+
+
+
+  };
+
+
+};
+
+
 };
 
 // If you need a random string generator, use this!
 // (you wont need this function for your solution but it may help with testing)
-var randomString = function (len) {
+var randomString = function(len) {
   var text = "";
   var possible = "abcdefghijklmnopqrstuvwxyz";
 
-  for(var i = 0; i < len; i++) {
+  for (var i = 0; i < len; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
 
