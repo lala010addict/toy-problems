@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script type="text/javascript">
+var longestRun = function(string) {
+  var prevCount = 0;
+  var currCount = 0;
+  var hold = [];
+  debugger;
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] === string[i + 1]) {
+      currCount++
+
+    } else {
+      if (currCount > prevCount) {
+
+        hold.push({
+          length: currCount,
+          char: string[i]
+        })
+        prevCount = currCount
+        currCount = 0
+
+      }
+    }
+  };
+
+  var last = hold.pop()
+
+  var holdd = [];
+  holdd.push(string.indexOf(last['char']))
+  var sum = last['length'] + string.indexOf(last['char'])
+  holdd.push(sum)
+  return holdd
+};
+
+
+console.log(longestRun("abcd"))
+</script>

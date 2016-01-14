@@ -15,6 +15,7 @@
 var longestRun = function(string) {
   var prevCount = 0;
   var currCount = 0;
+  var hold = [];
 
   for (var i = 0; i < string.length; i++) {
     if (string[i] === string[i] + 1) {
@@ -23,18 +24,18 @@ var longestRun = function(string) {
     } else {
       if (currCount > prevCount) {
         currCount = prevCount
+        hold.push(string[i])
       }
     }
 
-
+ 
 
   };
 
-
+    return hold;
 };
 
 
-};
 
 // If you need a random string generator, use this!
 // (you wont need this function for your solution but it may help with testing)
