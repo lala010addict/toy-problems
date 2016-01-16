@@ -19,5 +19,8 @@ The binary search algorithm begins by comparing the target value to the value of
  */
 
 var binarySearch = function (array, target) {
+	var half = array.length/2
+	
+
 };
 
