@@ -11,24 +11,28 @@
 </html>
 <script type="text/javascript">
 var binarySearch = function(array, target) {
-  var count = 0;
-  var calHalf = Math.floor(array.length / 2)
-  var half = calHalf + count
-  console.log(half)
-  var firstHalf = array.slice(0, half)
-  var secHalf = array.slice(half)
 
-  if (target === secHalf[0]) {
-    return half
-  } else if (target > secHalf[0]) {
-    count++
+  var sub = function (low, high) {
+    // If we are done, we haven't found the target.
+    if (high === low) { return null; }
 
-    binarySearch(secHalf, target);
-  } else {
-    count--
-    binarySearch(firstHalf, target);
-  }
+    // Find the middle point.
+    var mid = Math.floor((high - low) / 2) + low;
 
+    // See if we found the target.
+    if (array[mid] === target) {
+      return mid;
+
+    // If not, decide which half to recurse on.
+    } else if (array[mid] > target) {
+      return sub(low, mid);
+    } else {
+      return sub(mid, high);
+    }
+  };
+
+  // Do the recursion.
+ return sub(0, array.length);
 
 
 };
