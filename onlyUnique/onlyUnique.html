@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script type="text/javascript">
+function onlyUnique(str) {
+  var empty = [];
+  for (var i = 0; i < str.length; i++) {
+    var counter = 0;
+    for (var n = 0; n < str.length; n++) {
+      if (str[i] === str[n]) {
+        counter++
+      }
+    }
+    if (counter === 1) {
+      empty.push(str[i])
+    }
+  }
+  return empty.join('')
+}
+
+
+
+function onlyUnique(str) {
+  // Write your code here, and
+  // return your final answer.
+  var uniques = {};
+  var result = '';
+
+  for (var i = 0; i < str.length; i++) {
+    uniques[str[i]] !== undefined ? uniques[str[i]] = false : uniques[str[i]] = true;
+  }
+
+  for (var key in uniques) {
+    if (uniques[key] === true) {
+      result += key;
+    }
+  }
+
+  return result;
+}
+
+
+
+
+
+
+console.log(onlyUnique("abccdefe"))
+</script>
