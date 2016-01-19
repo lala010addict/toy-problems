@@ -11,11 +11,24 @@
 </html>
 <script type="text/javascript">
 var uniq = function(array) {
+  var empty = [];
 
+  for (var i = 0; i < array.length; i++) {
+    var count = 0;
+    for (var n = 0; n < empty.length; n++) {
+      if (array[i] === empty[n]) {
+        count++;
+      }
+    }
+    if (count === 0) {
+      empty.push(array[i])
+    }
 
+  }
+  return empty;
 
 };
 
 
-console.log(uniq([1, 3, 4, 6, 7, 3, 4 9, 11]))
+console.log(uniq([1, 3, 4, 5, 1, 1, 1, 6, 7, 3, 4, 9, 11]))
 </script>
