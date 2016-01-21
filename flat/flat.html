@@ -12,10 +12,19 @@
 <script type="text/javascript">
 var flat = function(array) {
   var empty = [];
-  
-
+  var check = function(array) {
+    for (var i = 0; i < array.length; i++) {
+      if (typeof array[i] === 'number') {
+        empty.push(array[i])
+      } else {
+        check(array[i])
+      }
+    }
+  }
+  check(array);
+  return empty;
 };
 
 
-console.log(flat([1, 3, [1, 2], 8, 9, 11]))
+console.log(flat([1, 3, [1, [1,3,4],2], 8, 9, 11]))
 </script>
