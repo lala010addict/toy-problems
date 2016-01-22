@@ -98,5 +98,6 @@
 
 
 var mergeSort = function(array) {
+array.split
   // Your code here.
 };
