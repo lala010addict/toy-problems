@@ -10,14 +10,18 @@
 
 </html>
 <script type="text/javascript">
+function rotatedArraySearch(rotated, target) {
 
-function rotatedArraySearch (rotated, target) {
+  var half = Math.floor(rotated.length / 2)
+
+  if (rotated[0] > target) {
+
+    rotated[half]
+  }
 
 }
 
 
 
-console.log(rotatedArraySearch([ 4, 5, 6, 0, 1, 2, 3 ], 2))
-
-
+console.log(rotatedArraySearch([4, 5, 6, 0, 1, 2, 3], 2))
 </script>
