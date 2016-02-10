@@ -23,9 +23,8 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <script type="text/javascript">
 $('#target').click(function() {
-    $('#output').html(function(i, val) { return val*1+1 });
+  var count =  $('#output').val();
 });
-
    var counter = setInterval(timer, 1000);
 
     function timer() {
