@@ -25,13 +25,17 @@
 
 
     for (var i = 0; i < digitString.length; i++) {
-      console.log(num[digitString[i]])
+     // console.log(num[digitString[i]])
+     for (var n = 0; n < digitString[i].length; n++) {
+     	console.log(num[digitString[i][n]])
+     };
+
     }
 
 
   }
 
-  console.log(telephoneWords("0002"))
+  console.log(telephoneWords("5342"))
   </script>
 </body>
 
