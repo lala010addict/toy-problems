@@ -8,8 +8,12 @@
 <body>
   <script type="text/javascript">
   var mergeSort = function(array) {
-  
+    var splitArray = [];
+    for (var i = 0; i < array.length; i++) {
+      splitArray.push('[' + array[i] + ']')
+    }
 
+    return splitArray
   };
 
   console.log(mergeSort([4, 7, 4, 3, 9, 1, 2]))
