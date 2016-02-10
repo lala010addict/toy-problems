@@ -15,9 +15,12 @@
   <span id="timer"></span>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <script type="text/javascript">
-  var count=4;
+  var count = 21
+  $('button').click(function() {
+    count = $('input').val();
+  })
 
-var counter=setInterval(timer, 1000);
+  var counter = setInterval(timer, 1000);
 
   function timer() {
     count = count - 1;
