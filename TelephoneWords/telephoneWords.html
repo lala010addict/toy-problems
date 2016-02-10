@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+  var num = {
+    1: [1],
+    2: ['a', 'b', 'c'],
+    3: ['d', 'e', 'f'],
+    4: ['g', 'h', 'i'],
+    5: ['j', 'k', 'l'],
+    6: ['m', 'n', 'o'],
+    7: ['p', 'q', 'r', 's'],
+    8: ['t', 'u', 'v'],
+    9: ['w', 'x', 'y', 'z'],
+    0: [0]
+
+  }
+
+  function telephoneWords(digitString) {
+
+
+    for (var i = 0; i < digitString.length; i++) {
+      console.log(num[digitString[i]])
+    }
+
+
+  }
+
+  console.log(telephoneWords("0002"))
+  </script>
+</body>
+
+</html>
