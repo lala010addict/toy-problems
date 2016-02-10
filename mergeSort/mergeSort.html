@@ -10,7 +10,7 @@
   var mergeSort = function(array) {
     var splitArray = [];
     for (var i = 0; i < array.length; i++) {
-      splitArray.push('[' + array[i] + ']')
+      splitArray.push(array.slice(i, i+1))
     }
 
     return splitArray
