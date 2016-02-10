@@ -14,19 +14,17 @@
   </form>
   <span id="timer"></span>
 
-  <div id="t" class="badge">00:00</div>
+<button id="target" type="button">Click Me</button>
+<div id="output">10</div>
 
 
-<button id="btn">Start</button>
+
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <script type="text/javascript">
-  $('button').click(function() {
-     alert($('input').val())
-    var count = $('input').val();
-   
-  })
-
+$('#target').click(function() {
+    $('#output').html(function(i, val) { return val*1+1 });
+});
 
    var counter = setInterval(timer, 1000);
 
