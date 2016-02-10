@@ -12,19 +12,28 @@
     for (var i = 0; i < array.length; i++) {
       splitArray.push(array.slice(i, i + 1))
     }
-    var concatArr = [];
-    for (var n = 0; n < splitArray.length; n = n + 2) {
-      if (splitArray[n] < splitArray[n + 1]) {
-        concatArr.push(splitArray[n].concat(splitArray[n + 1]))
-      } else if (!splitArray[n + 1]) {
-        concatArr.push(splitArray[n])
+
+    var mSort = function(arr) {
+      var concatArr = [];
+      for (var n = 0; n < splitArray.length; n = n + 2) {
+        if (splitArray[n] < splitArray[n + 1]) {
+          concatArr.push(splitArray[n].concat(splitArray[n + 1]))
+        } else if (!splitArray[n + 1]) {
+          concatArr.push(splitArray[n])
+        } else {
+          concatArr.push(splitArray[n + 1].concat(splitArray[n]))
+        }
+
+      }
+      if (concatArr.length !== array.length) {
+        mSort(concatArr)
       } else {
-        concatArr.push(splitArray[n + 1].concat(splitArray[n]))
+        return concatArr;
       }
 
     }
 
-    return concatArr.length;
+
   };
 
   console.log(mergeSort([4, 7, 4, 3, 9, 1, 2]))
