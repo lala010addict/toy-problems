@@ -15,22 +15,27 @@
   <span id="timer"></span>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <script type="text/javascript">
-  var count = 21
   $('button').click(function() {
-    count = $('input').val();
+     alert($('input').val())
+    var count = $('input').val();
+   
   })
 
-  var counter = setInterval(timer, 1000);
 
-  function timer() {
-    count = count - 1;
-    if (count <= 0) {
-      clearInterval(counter);
-      return;
+   var counter = setInterval(timer, 1000);
+
+    function timer() {
+      count = count - 1;
+      if (count <= 0) {
+        document.getElementById("timer").innerHTML = '0 sec';
+        clearInterval(counter);
+        return;
+      }
+
+      document.getElementById("timer").innerHTML = count + " secs"; // watch for spelling
     }
 
-    document.getElementById("timer").innerHTML = count + " secs"; // watch for spelling
-  }
+    
   </script>
 </body>
 
