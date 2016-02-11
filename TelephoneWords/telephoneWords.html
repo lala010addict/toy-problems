@@ -2,40 +2,41 @@
 <html>
 
 <head>
-  <title></title>
+    <title></title>
 </head>
 
 <body>
-  <script type="text/javascript">
-  var num = {
-    1: [1],
-    2: ['a', 'b', 'c'],
-    3: ['d', 'e', 'f'],
-    4: ['g', 'h', 'i'],
-    5: ['j', 'k', 'l'],
-    6: ['m', 'n', 'o'],
-    7: ['p', 'q', 'r', 's'],
-    8: ['t', 'u', 'v'],
-    9: ['w', 'x', 'y', 'z'],
-    0: [0]
-
-  }
-
-  function telephoneWords(digitString) {
-
-
-    for (var i = 0; i < digitString.length; i++) {
-     // console.log(num[digitString[i]])
-     for (var n = 0; n < digitString[i].length; n++) {
-     	console.log(num[digitString[i][n]])
-     };
+    <script type="text/javascript">
+    var num = {
+        0: '0',
+        1: '1',
+        2: 'ABC',
+        3: 'DEF',
+        4: 'GHI',
+        5: 'JKL',
+        6: 'MNO',
+        7: 'PQRS',
+        8: 'TUV',
+        9: 'WXYZ'
 
     }
 
-  }
+    function telephoneWords(digitString) {
+        if (digitString.length === 1) {
+            return letters[digitString.charAt(0)].split('');
+        }
 
-  console.log(telephoneWords("1123"))
-  </script>
+        var possibilities = [];
+        var next = telephoneWords(digitString.substr(1));
+        for (var i = 0; i < letters[digitString.charAt(0)].length; i++) {
+            for (var j = 0; j < next.length; j++) {
+                possibilities.push(letters[digitString.charAt(0)][i] + next[j]);
+            }
+        }
+        return possibilities;
+    }
+    console.log(telephoneWords("1123"))
+    </script>
 </body>
 
 </html>
