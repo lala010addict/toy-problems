@@ -33,8 +33,9 @@
 
 'use strict';
 
-var compose = function(){
+var compose = function(x, y) {
+    x();
+    y();
 };
 
-var pipe = function(){
-};
+var pipe = function() {};
