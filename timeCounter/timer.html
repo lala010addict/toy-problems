@@ -2,44 +2,26 @@
 <html>
 
 <head>
-  <title></title>
+    <title></title>
 </head>
 
 <body>
-  <form>
-    mins:
-    <input></input>
-    <br>
-    <button>submit</button>
-  </form>
-  <span id="timer"></span>
-
-<button id="target" type="button">Click Me</button>
-<div id="output">10</div>
-
-
-
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-  <script type="text/javascript">
-$('#target').click(function() {
-  var count =  $('#output').val();
-});
-   var counter = setInterval(timer, 1000);
-
-    function timer() {
-      count = count - 1;
-      if (count <= 0) {
-        document.getElementById("timer").innerHTML = '0 sec';
-        clearInterval(counter);
-        return;
-      }
-
-      document.getElementById("timer").innerHTML = count + " secs"; // watch for spelling
+    <input type="text" value="" id="input" size="1000" />
+    <script type="text/javascript">
+    function counter() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var date2 = new Date(year, 12, 31, 23, 59, 59);
+        var time = (date2 - date) / 1000;
+        var day = Math.floor(time / (24 * 60 * 60))
+        var hour = Math.floor(time % (24 * 60 * 60) / (60 * 60))
+        var minute = Math.floor(time % (24 * 60 * 60) % (60 * 60) / 60);
+        var second = Math.floor(time % (24 * 60 * 60) % (60 * 60) % 60);
+        var str = year + "years left" + day + "days" + hour + "hours" + minute + "mins" + second + "secs";
+        document.getElementById("input").value = str;
     }
-
-
-  </script>
+    window.setInterval("counter()", 1000);
+    </script>
 </body>
 
 </html>
