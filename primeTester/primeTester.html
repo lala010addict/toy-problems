@@ -8,20 +8,16 @@
 <body>
     <script type="text/javascript">
     var primeTester = function(num) {
-        if (num % 2 === 0){
-        	return false;
-        } else if (num % num -2 === 0){
-        	return false;
-        } else{
-        	primeTester(num -2)
+        if (num % 2 === 0 || num % num - 2 === 0) {
+            return false;
+        } else if (num < 2) {
+            return true;
+        } else {
+            primeTester(num - 2)
         }
-
-        if (num < 2){
-        	return true;
-        }
-
     }
-   console.log(primeTester(5)) 
+
+    console.log(primeTester(7))
     </script>
 </body>
 
