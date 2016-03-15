@@ -1,4 +1,4 @@
-Make an eventing system mix-in that adds .trigger() and .on() to any input object.
+<!-- Make an eventing system mix-in that adds .trigger() and .on() to any input object.
 
 Example usage:
 var obj = mixEvents({ name: 'Alice', age: 30 });
@@ -15,4 +15,30 @@ listeners for an event.
 - If obj.trigger is called with additional arguments, pass those to the
 listeners.
 - It is not necessary to write a way to remove listeners.
+ -->
 
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ </head>
+ <body>
+ <script type="text/javascript">
+ 	var mixEvents = function(obj) {
+  //Your code here
+  var events = {};
+
+  obj.trigger = function (event) {
+    //Your code here
+  };
+
+  // Register a callback to be fired on this event.
+  obj.on = function (event, callback) {
+    //Your code here
+  };
+  return obj;
+};
+
+ </script>
+ </body>
+ </html>
