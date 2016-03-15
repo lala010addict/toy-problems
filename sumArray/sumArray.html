@@ -11,6 +11,8 @@ array:
 array:
 [ 1, 2, 3, -6, 4, 5, 6 ]	15
 
+[1,2,3,-4,5,-4,5,-4,-4]    8
+
 var arr = [1, 2, 3];
 var max = Math.max(...arr);
 
@@ -31,7 +33,14 @@ var max = Math.max(...arr);
         for (i = 0; i < array.length; i++) {
             sum = sum + array[i]
         }
-        return sum;
+        var max = Math.max(...array);
+
+        if (sum < max) {
+            return max
+        } else {
+            return sum
+        }
+
 
     }
     </script>
