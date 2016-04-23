@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var consonantReversal = function(input) {
+       input = input.split('')
+        var vowels = ['a', 'e', 'i', 'o', 'u'];
+        var empty = [];
+        for (var i = 0; i < input.length; i++) {
+
+            if (vowels.indexOf(input[i]) === -1) {
+                empty.push(input[i])
+            }
+        }
+
+        var reversed = empty.reverse();
+
+        var h = 0
+
+        for (var i = 0; i < input.length; i++) {
+            if (vowels.indexOf(input[i]) === -1) {
+
+              input[i] = reversed[h++]
+
+            }
+        }
+   
+        console.log(input.join(''))
+    }
+
+
+    consonantReversal('eabafgs')
+    </script>
+</body>
+
+</html>
