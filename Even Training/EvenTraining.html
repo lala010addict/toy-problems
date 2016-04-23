@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var evenTraining = function(n, calendar) {
+    	calendar = calendar.split(' ')
+    	var days = 0;
+    	var yesorno = 'no';
+    	for (var i = 0; i < calendar.length; i++) {
+    		if(calendar[i] == 1){
+    			days++
+    		}
+    	}
+
+    	if(days%2 === 0){
+    		yesorno = 'yes';
+    	}
+
+    	console.log(yesorno, days);
+    }
+
+
+    evenTraining(4, "1 0 1 1")
+    </script>
+</body>
+
+</html>
