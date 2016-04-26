@@ -4,19 +4,58 @@ Examples:
 longestSubstring(“hello worlld”, 2)  ->  “ell”
 longestSubstring(“ccabbaabaaadaaaa”, 2)  -> “abbaabaaa”
 longestSubstring(“ccabaabaaad”, 3) -> “ccabaabaaa” -->
-
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
+    <title></title>
 </head>
+
 <body>
+    <script type="text/javascript">
+    var longestSubstring = function(string, m) {
+        var longest = '';
+        var curStr = ''
+        var count = 1;
 
-<script type="text/javascript">
-	var longestSubstring
+
+
+        for (var i = 0; i < string.length; i++) {
+            curStr = string[i]
+            count = 1;
+            for (var j = i + 1; count <= m && j < string.length; j++) {
+
+                if (curStr.indexOf(string[j]) === -1) {
+                    count++
+                }
+                if (count > m) {
+                    break;
+                }
+                curStr += string[j]
+
+            }
+
+            if (curStr.length > longest.length) {
+                longest = curStr
+
+            }
+
+        }
+        return longest;
+
+
+    }
 
 
 
-</script>
+    console.log(longestSubstring('hello worlld', 2))
+
+
+
+
+
+   
+    </script>
 </body>
+
 </html>
