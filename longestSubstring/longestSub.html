@@ -17,15 +17,20 @@ longestSubstring(“ccabaabaaad”, 3) -> “ccabaabaaa” -->
         var longest = '';
         var curStr = ''
         var count = 1;
+        var obj = {};
 
 
 
         for (var i = 0; i < string.length; i++) {
+            obj = {}
             curStr = string[i]
             count = 1;
+            obj[string[i]] = true;
+
             for (var j = i + 1; count <= m && j < string.length; j++) {
 
-                if (curStr.indexOf(string[j]) === -1) {
+                if (!obj[string[j]]) {
+                    obj[string[j]] = true;
                     count++
                 }
                 if (count > m) {
@@ -48,13 +53,29 @@ longestSubstring(“ccabaabaaad”, 3) -> “ccabaabaaa” -->
 
 
 
-    console.log(longestSubstring('hello worlld', 2))
+    console.log(longestSubstring('ccabbaabaaadaaaa', 2))
 
 
 
 
 
-   
+    var check = function(x, y) {
+        var obj = {};
+        for (var i = 0; i < x.length; i++) {
+            obj[x[i]] = '1'
+        }
+
+        console.log(obj)
+        if (obj[y]) {
+            return true
+        } else {
+            return false;
+        }
+
+    }
+
+
+    console.log(check([1, 2, 3, 4, 5], 10))
     </script>
 </body>
 
