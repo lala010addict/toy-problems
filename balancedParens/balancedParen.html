@@ -1,9 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
 
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var balancedParens = function(input) {
+        var holder = [];
+        for (var i = 0; i < input.length; i++) {
+            if (input[i] === '(') {
+                holder.push(input[i])
+            }
+
+            if (input[i] === ')') {
+                if (holder.length) {
+                    holder.pop()
+                } else {
+                    return false;
+                }
+
+            }
+
+        }
+
+        return !holder.length
+
+    };
+
+    console.log(balancedParens('(')); //false
+    console.log(balancedParens('()')); // true
+    console.log(balancedParens(')(')); // false
+    console.log(balancedParens('(())')); // true
+    </script>
 </body>
+
 </html>
