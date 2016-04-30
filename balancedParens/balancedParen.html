@@ -7,15 +7,18 @@
 
 <body>
     <script type="text/javascript">
-    var balancedParens = function(input) {
+    var balancedParens = function(str) {
         var holder = [];
-        for (var i = 0; i < input.length; i++) {
-            if (input[i] === '(') {
-                holder.push(input[i])
+        for (var i = 0; i < str.length; i++) {
+            if (str[i] === '(' ||
+                str[i] === '{' ||
+                str[i] === '[') {
+                holder.push(str[i])
             }
 
-            if (input[i] === ')') {
-                if (holder.length) {
+            if (str[i] === ')') {
+
+                if (holder[holder.length - 1] === '(') {
                     holder.pop()
                 } else {
                     return false;
@@ -23,16 +26,48 @@
 
             }
 
+
+
+            if (str[i] === '}') {
+
+            
+                if (holder[holder.length - 1] === '{') {
+                    holder.pop()
+                } else {
+                    return false;
+                }
+
+            }
+
+
+            if (str[i] === ']') {
+
+                if (holder[holder.length - 1] === '[') {
+                    holder.pop()
+                } else {
+                    return false;
+                }
+
+            }
+
+
+
+
+
         }
 
         return !holder.length
 
     };
 
-    console.log(balancedParens('(')); //false
+    console.log(balancedParens('([[{')); //false
     console.log(balancedParens('()')); // true
     console.log(balancedParens(')(')); // false
     console.log(balancedParens('(())')); // true
+
+    console.log(balancedParens('[](){}')); // true
+    console.log(balancedParens('[({})]')); // true
+    console.log(balancedParens('[(]{)}')); // false
     </script>
 </body>
 
