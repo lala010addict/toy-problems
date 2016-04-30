@@ -23,14 +23,8 @@
  *
  *
  */
-var balancedParens = function(input){
-	var right = 0;
-	var left = 0;
-	var split = input.split('')
-	var notBalanced
-	for (var i = 0; i < split.length; i++) {
-		if(split[i])
-	};
+var balancedParens = function(input) {
+
 };
 
 
