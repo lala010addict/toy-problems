@@ -8,55 +8,81 @@
 <body>
     <script type="text/javascript">
     var balancedParens = function(str) {
-        var holder = [];
+        // var holder = [];
+        // for (var i = 0; i < str.length; i++) {
+        //     if (str[i] === '(' ||
+        //         str[i] === '{' ||
+        //         str[i] === '[') {
+        //         holder.push(str[i])
+        //     }
+
+        //     if (str[i] === ')') {
+
+        //         if (holder[holder.length - 1] === '(') {
+        //             holder.pop()
+        //         } else {
+        //             return false;
+        //         }
+
+        //     }
+
+
+
+        //     if (str[i] === '}') {
+
+
+        //         if (holder[holder.length - 1] === '{') {
+        //             holder.pop()
+        //         } else {
+        //             return false;
+        //         }
+
+        //     }
+
+
+        //     if (str[i] === ']') {
+
+        //         if (holder[holder.length - 1] === '[') {
+        //             holder.pop()
+        //         } else {
+        //             return false;
+        //         }
+
+        //     }
+
+
+
+
+
+        // }
+
+        // return !holder.length
+
+        var ch,
+            pairs = {
+                '{': '}',
+                '(': ')',
+                '[': ']'
+            }
+        queue = [];
+
         for (var i = 0; i < str.length; i++) {
-            if (str[i] === '(' ||
-                str[i] === '{' ||
-                str[i] === '[') {
-                holder.push(str[i])
-            }
+            ch = str[i];
 
-            if (str[i] === ')') {
-
-                if (holder[holder.length - 1] === '(') {
-                    holder.pop()
-                } else {
-                    return false;
+            for (var key in pairs) {
+                if (ch === key) {
+                    queue.push(key);
                 }
-
-            }
-
-
-
-            if (str[i] === '}') {
-
-            
-                if (holder[holder.length - 1] === '{') {
-                    holder.pop()
-                } else {
-                    return false;
+                if (ch === pairs[key]) {
+                    if (ch !== pairs[queue.pop()]) {
+                        return false;
+                    }
                 }
-
             }
-
-
-            if (str[i] === ']') {
-
-                if (holder[holder.length - 1] === '[') {
-                    holder.pop()
-                } else {
-                    return false;
-                }
-
-            }
-
-
-
-
-
         }
 
-        return !holder.length
+        return queue.length === 0;
+
 
     };
 
